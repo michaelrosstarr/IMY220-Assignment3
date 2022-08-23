@@ -9,5 +9,3 @@ var events = [
 ];
 
 const manager = new EventHandler(events);
-
-

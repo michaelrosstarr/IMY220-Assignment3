@@ -1,4 +1,5 @@
 // Michael Tarr u20537833
+
 function getEventsBetweenDates(start, end, array) {
     const filtered = array.filter(element => {
         if (element.dateStart >= start && element.dateEnd <= end) {
