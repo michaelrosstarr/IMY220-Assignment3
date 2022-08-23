@@ -5,7 +5,7 @@ class EventHandler {
 
     getEventsBetweenDates(start, end) {
         const filtered = this.events.filter(element => {
-            if(element.dateStart >= start && element.dateEnd <= end) {
+            if (element.dateStart >= start && element.dateEnd <= end) {
                 return element;
             }
         })
@@ -18,11 +18,11 @@ class EventHandler {
 
             var tMonth = month.toString();
 
-            if(tMonth.length === 1) {
+            if (tMonth.length === 1) {
                 tMonth = "0" + tMonth;
             }
 
-            if(split[1] === tMonth) {
+            if (split[1] === tMonth) {
                 return element;
             }
         })
@@ -30,7 +30,32 @@ class EventHandler {
     }
 
     getUniqueDateAndSort() {
+        var filtered = this.events;
+        filtered = filtered.sort((eventOne, eventTwo) => {
+            if (eventTwo.dateStart > eventOne.dateStart) {
+                return -1;
+            } else {
+                return 1;
+            }
+        })
 
+        console.log(filtered);
+
+
+        const startArr = [];
+        const endArr = [];
+        filtered = filtered.filter(item => { 
+            if(startArr.includes(item.dateStart) && endArr.includes(item.dateEnd)) {
+                return null;
+            } else {
+                startArr.includes(item.dateStart) ? null : startArr.push(item.dateStart);
+                endArr.includes(item.dateEnd) ? null : endArr.push(item.dateEnd);
+                return item;
+            }
+        });
+
+
+        return filtered;
     }
 
     getSummary() {

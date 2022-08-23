@@ -10,5 +10,6 @@ var events = [
 
 const manager = new EventHandler(events);
 
-console.log(manager.getEventsBetweenDates("2022/02/01", "2022/02/26"));
-console.log(manager.getByMonth(05));
+// console.log(manager.getEventsBetweenDates("2022/02/01", "2022/02/26"));
+// console.log(manager.getByMonth(05));
+console.log(manager.getUniqueDateAndSort());
