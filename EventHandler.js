@@ -54,6 +54,37 @@ class EventHandler {
     }
 
     getSummary() {
-
+        if(arguments.length === 0) {
+            if(Array.isArray(this.events)) {
+                const filtered = this.events.map(event => {
+                    var str = ``;
+                    event.dateStart === event.dateEnd ? str = `On ${event.dateStart}: ${event.name} (${event.description})` : str = `From ${event.dateStart} to ${event.dateEnd}: ${event.name} (${event.description})`;
+                    return str;
+                })
+                return filtered;
+            }
+        } else if(arguments.length === 1 && Array.isArray(arguments[0])) {
+            const filtered = arguments[0].map(event => {
+                var str = ``;
+                event.dateStart === event.dateEnd ? str = `On ${event.dateStart}: ${event.name} (${event.description})` : str = `From ${event.dateStart} to ${event.dateEnd}: ${event.name} (${event.description})`;
+                return str;
+            })
+            return filtered;
+        } else if(arguments.length > 1) {
+            const args = Array.from(arguments);
+            const filtered = args.map(event => {
+                var str = ``;
+                event.dateStart === event.dateEnd ? str = `On ${event.dateStart}: ${event.name} (${event.description})` : str = `From ${event.dateStart} to ${event.dateEnd}: ${event.name} (${event.description})`;
+                return str;
+            })
+            return filtered;
+        } else {
+            return [];
+        }
     }
 }
+
+Array.prototype.getEventsBetweenDates = EventHandler.getEventsBetweenDates;
+Array.prototype.getByMonth = EventHandler.getByMonth;
+Array.prototype.getUniqueDateAndSort = EventHandler.getUniqueDateAndSort;
+Array.prototype.getSummary = EventHandler.getSummary;

@@ -12,4 +12,7 @@ const manager = new EventHandler(events);
 
 // console.log(manager.getEventsBetweenDates("2022/02/01", "2022/02/26"));
 // console.log(manager.getByMonth(05));
-console.log(manager.getUniqueDateAndSort());
+// console.log(manager.getUniqueDateAndSort());
+// console.log(manager.getSummary({name: "University expo", description: "Expo to showcase University degrees", dateStart: "2022/02/01", dateEnd: "2022/02/14"},
+// {name: "Market", description: "Farmer's market day long event", dateStart: "2022/06/12", dateEnd: "2022/06/12"},));
+console.info(manager.getByMonth(06).getSummary());
