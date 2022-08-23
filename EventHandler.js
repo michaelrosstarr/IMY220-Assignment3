@@ -84,7 +84,11 @@ class EventHandler {
     }
 }
 
-Array.prototype.getEventsBetweenDates = EventHandler.getEventsBetweenDates;
-Array.prototype.getByMonth = EventHandler.getByMonth;
-Array.prototype.getUniqueDateAndSort = EventHandler.getUniqueDateAndSort;
-Array.prototype.getSummary = EventHandler.getSummary;
+Array.prototype.getByMonth = function() {
+    console.log("hellooooooooooo");
+}
+
+Array.prototype.getSummary = function() {
+    return EventHandler
+    console.log(this);
+};
