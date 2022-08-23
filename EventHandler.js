@@ -39,11 +39,7 @@ class EventHandler {
             }
         })
 
-        console.log(filtered);
-
-
-        const startArr = [];
-        const endArr = [];
+        const startArr = [], endArr = [];
         filtered = filtered.filter(item => { 
             if(startArr.includes(item.dateStart) && endArr.includes(item.dateEnd)) {
                 return null;
@@ -53,7 +49,6 @@ class EventHandler {
                 return item;
             }
         });
-
 
         return filtered;
     }
