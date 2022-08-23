@@ -89,6 +89,11 @@ Array.prototype.getByMonth = function() {
 }
 
 Array.prototype.getSummary = function() {
-    return EventHandler
-    console.log(this);
+    // return EventHandler.getSummary(this);
+    const filtered = this.map(event => {
+        var str = ``;
+        event.dateStart === event.dateEnd ? str = `On ${event.dateStart}: ${event.name} (${event.description})` : str = `From ${event.dateStart} to ${event.dateEnd}: ${event.name} (${event.description})`;
+        return str;
+    })
+    return filtered;
 };
